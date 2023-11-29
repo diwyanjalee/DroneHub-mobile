@@ -1,0 +1,13 @@
+<ion-card>
+  <ion-item fill="outline">
+    <ion-label position="floating">Title</ion-label>
+    <ion-input placeholder="Enter text" type="text" id="btitle" required [(ngModel)]="blog.btitle" name="btitle"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Text...</ion-label>
+    <ion-input placeholder="Enter text" id="blogtext" rows="10" required [(ngModel)]="blog.blogtext" name="blogtext"></ion-input>
+  </ion-item>
+
+  <ion-button (click)="saveBlog()">Save</ion-button>
+</ion-card>

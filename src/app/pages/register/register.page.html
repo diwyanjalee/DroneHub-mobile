@@ -1,0 +1,130 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title color="warning">Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="flex-center">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title color="warning"></ion-card-title>
+      </ion-card-header>
+
+    
+      <ion-card-content>
+        <form [formGroup]="registerForm">
+          <ion-item>
+            <ion-label position="floating">First Name</ion-label>
+            <ion-input type="text" [(ngModel)]="user.firstname"
+            formControlName="firstname"></ion-input>
+          </ion-item>
+
+          <span class="error ion-padding" *ngIf="isSubmitted && errorControl.firstname.errors?.required">
+            First Name is required.
+          </span>         
+
+          <ion-item>
+            <ion-label position="floating">Last Name</ion-label>
+            <ion-input type="text" [(ngModel)]="user.lastname"
+            formControlName="lastname"></ion-input>
+          </ion-item>
+
+          <span class="error ion-padding" *ngIf="isSubmitted && errorControl.lastname.errors?.required">
+            Last name is required.
+          </span> 
+
+          <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input type="text" [(ngModel)]="user.email"
+            formControlName="email"></ion-input>
+          </ion-item>
+
+          <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.required">
+            email is required.
+          </span>
+          <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.email">
+            Not a valid email.
+          </span>
+
+          <ion-item>
+            <ion-label position="floating">Mobile</ion-label>
+            <ion-input type="text" [(ngModel)]="user.mobile"
+            formControlName="mobile"></ion-input>
+          </ion-item>
+
+          <span class="error ion-padding" *ngIf="isSubmitted && errorControl.mobile.errors?.required">
+            mobile number is required.
+          </span> 
+          <span class="error ion-padding" *ngIf="isSubmitted && errorControl.mobile.errors?.minlength">
+            Max mobile number lengt is 10.
+          </span> 
+          <span class="error ion-padding" *ngIf="isSubmitted && errorControl.mobile.errors?.required">
+            Mobile number should be 10 lenght.
+          </span> 
+
+          <ion-item>
+            <ion-label position="floating">Address</ion-label>
+            <ion-input type="text" [(ngModel)]="user.address"
+            formControlName="address"></ion-input>
+          </ion-item>
+
+          <span class="error ion-padding" *ngIf="isSubmitted && errorControl.address.errors?.required">
+            address is required.
+          </span> 
+
+          <ion-item>
+            <ion-label position="floating">City</ion-label>
+            <ion-input type="text" [(ngModel)]="user.city"
+            formControlName="city"></ion-input>
+          </ion-item>
+
+          <span class="error ion-padding" *ngIf="isSubmitted && errorControl.city.errors?.required">
+            City is required.
+          </span> 
+
+          <ion-item>
+            <ion-label position="floating">Zip code</ion-label>
+            <ion-input type="text" [(ngModel)]="user.zipcode"
+            formControlName="zCode"></ion-input>
+          </ion-item>
+          <span class="error ion-padding" *ngIf="isSubmitted && errorControl.zCode.errors?.required">
+            Zip code is required.
+          </span> 
+
+          <ion-item>
+            <ion-label position="floating">Password</ion-label>
+            <ion-input type="password" [(ngModel)]="user.password"
+            formControlName="password"></ion-input>
+          </ion-item>
+          
+          <span class="error ion-padding" *ngIf="isSubmitted && errorControl.password.errors?.required">
+            Password is required.
+          </span> 
+          
+
+          <ion-item>
+            <ion-label position="floating">Confirm Password</ion-label>
+            <ion-input type="password" [(ngModel)]="confirmPassword"
+            formControlName="confirmPassword"></ion-input>
+          </ion-item>
+          
+          <span class="error ion-padding" *ngIf="isSubmitted && errorControl.confirmPassword.errors?.required">
+            confirm password is required.
+          </span> 
+          
+          <span class="help-block"
+          *ngIf="confirmPassword.touched && confirmPassword.errors?.notEqual && !confirmPassword.errors?.required">
+           Password and Confirm Password does not match
+          </span>
+
+        <ion-button color="warning" size="full" (click)="registerUser()">Register</ion-button>
+        <ion-button color="dark" fill="clear" size="full" (click)="login()">I have an account</ion-button>
+        </form>
+        
+
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</ion-content>
